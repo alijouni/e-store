@@ -10,7 +10,7 @@ const MenuItem = ({ title, imageUrl, size,linkUrl}) => {
 
   async function handleClick(event) {
     event.preventDefault();
-      navigate(`${linkUrl}`);
+    navigate(`${linkUrl}`);
   }
 
 
