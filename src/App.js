@@ -3,7 +3,9 @@ import { Route,Routes } from 'react-router-dom';
 import './App.css';
 
 import HomePage from './pages/homepage/homepage.component'
-import ShopPage from './pages/shop/shop.component'
+import ShopPage from './pages/shop/shop.component';
+import Header from './components/header/header.component';
+import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 
 const HatsPage = () => (
   <div>
@@ -35,6 +37,7 @@ const MenPage = () => (
 function App() {
   return (
     <div>
+      <Header/>
       <Routes>
         <Route path='/' element={<HomePage/>} />
         <Route path='/shop/hats' element={<HatsPage/>}/>
@@ -42,7 +45,8 @@ function App() {
         <Route path='/shop/jackets' element={<JacketsPage/>}/>
         <Route path='/shop/women' element={<WomenPage/>}/>
         <Route path='/shop/men' element={<MenPage />} />
-        <Route path='/shop/' element={<ShopPage/>}/>
+        <Route path='/shop/' element={<ShopPage />} />
+        <Route path='/signin/' element={<SignInAndSignUpPage/>}/>
       </Routes>
 
     </div>
