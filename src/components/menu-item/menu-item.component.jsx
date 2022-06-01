@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
+
+
 const MenuItem = ({ title, imageUrl, size,linkUrl}) => {
 
   let navigate = useNavigate();
@@ -12,6 +15,8 @@ const MenuItem = ({ title, imageUrl, size,linkUrl}) => {
     event.preventDefault();
     navigate(`${linkUrl}`);
   }
+
+
 
 
     return (
