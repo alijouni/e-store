@@ -16,33 +16,6 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
 
-const HatsPage = () => (
-  <div>
-    <h1>HATS PAGE</h1>
-  </div>
-);
-
-const JacketsPage = () => (
-  <div>
-    <h1>JACKETS PAGE</h1>
-  </div>
-);
-const SneakersPage = () => (
-  <div>
-    <h1>SNEAKERS PAGE</h1>
-  </div>
-);
-const WomenPage = () => (
-  <div>
-    <h1>WOMEN PAGE</h1>
-  </div>
-);
-const MenPage = () => (
-  <div>
-    <h1>MEN PAGE</h1>
-  </div>
-);
-
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
@@ -73,11 +46,6 @@ class App extends React.Component {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/shop/hats" element={<HatsPage />} />
-          <Route path="/shop/sneakers" element={<SneakersPage />} />
-          <Route path="/shop/jackets" element={<JacketsPage />} />
-          <Route path="/shop/women" element={<WomenPage />} />
-          <Route path="/shop/men" element={<MenPage />} />
           <Route path="/shop/" element={<ShopPage />} />
           <Route path="/checkout" element={<CheckoutPage/>}/>
           <Route
