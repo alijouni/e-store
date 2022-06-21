@@ -2,7 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { HeaderContainer,LogoContainer,OptionsContainer,OptionDiv,OptionLink } from "./header.styles";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionLink,
+} from "./header.styles";
 
 import { auth } from "../../firebase/firebase.utils";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
@@ -20,20 +25,14 @@ const Header = ({ currentUser, hidden }) => {
         <Logo className="logo" />
       </LogoContainer>
       <OptionsContainer>
-        <OptionLink to="/shop">
-          SHOP
-        </OptionLink>
-        <OptionLink to="/shop">
-          CONTACT
-        </OptionLink>
+        <OptionLink to="/shop">SHOP</OptionLink>
+        <OptionLink to="/shop">CONTACT</OptionLink>
         {currentUser ? (
-          <OptionDiv  onClick={() => auth.signOut()}>
+          <OptionLink as="div" onClick={() => auth.signOut()}>
             SIGN OUT
-          </OptionDiv>
-        ) : (
-          <OptionLink to="/signin">
-            SIGN IN
           </OptionLink>
+        ) : (
+          <OptionLink to="/signin">SIGN IN</OptionLink>
         )}
         <CartIcon />
       </OptionsContainer>
