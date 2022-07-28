@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
@@ -9,10 +9,10 @@ import { signUpStart } from "../../redux/user/user.actions";
 import "./sign-up.styles.scss";
 // import { render } from '@testing-library/react';
 
-const SignUp = ({signUpStart}) => {
+const SignUp = () => {
   const [userCredentials, setCredentials] = useState({ displayName: '', email: '', password: '', confirmPassword: '' });
   const { displayName, email, password, confirmPassword } = userCredentials;
-
+  const dispatch = useDispatch();
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
@@ -20,7 +20,7 @@ const SignUp = ({signUpStart}) => {
       return;
     }
 
-    signUpStart({ displayName, email, password });
+    dispatch(signUpStart({ displayName, email, password }));
   };
 
   const handleChange = (event) => {
@@ -72,9 +72,9 @@ const SignUp = ({signUpStart}) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  signUpStart: (userData) => dispatch(signUpStart(userData)),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   signUpStart: (userData) => dispatch(signUpStart(userData)),
+// });
 
-export default connect(null, mapDispatchToProps)(SignUp);
+export default SignUp;
 

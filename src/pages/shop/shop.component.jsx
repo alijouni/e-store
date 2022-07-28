@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import { Route, Routes } from "react-router-dom";
 
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 
@@ -10,10 +10,12 @@ import CollectionPageContainer from "../../components/collection/collection.cont
 import CollectionsOverviewContainer from "../../components/collections-overview/collections-overview.container";
 // import { firestore,convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils';
 
-const ShopPage = ({ fetchCollectionsStart }) => {
+const ShopPage = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    fetchCollectionsStart();
-  },[fetchCollectionsStart])
+    dispatch(fetchCollectionsStart());
+  },[dispatch])
     
     // const { updateCollections } = this.props;
     // const collectionRef = firestore.collection('collections');
@@ -42,8 +44,8 @@ const ShopPage = ({ fetchCollectionsStart }) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+// });
 
-export default connect(null, mapDispatchToProps)(ShopPage);
+export default ShopPage;
